@@ -1,4 +1,4 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+apply from: "buildSystem/depedencies.gradle"
 
 buildscript {
     ext.kotlin_version = '1.1.4-2'
@@ -8,17 +8,30 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.3'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-allopen:$kotlin_version"
     }
 }
 
 allprojects {
+    ext {
+        androidApplicationId = 'net.radityalabs.alquran'
+        androidVersionCode = 1
+        androidVersionName = "1.0"
+        testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
+        testApplicationId = 'net.radityalabs.alquran.test'
+    }
+
     repositories {
         jcenter()
         maven { url "https://maven.google.com" }
         maven { url "https://jitpack.io" }
     }
+    configurations.all {
+        resolutionStrategy.force 'com.android.support:support-annotations:25.3.1'
+        resolutionStrategy.force 'com.google.code.findbugs:jsr305:3.0.1'
+        resolutionStrategy.force 'org.jetbrains.kotlin:kotlin-stdlib:1.1.4-2'
+    }
 }
-
 task clean(type: Delete) {
     delete rootProject.buildDir
 }

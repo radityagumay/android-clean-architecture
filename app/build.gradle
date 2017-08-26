@@ -1,16 +1,24 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-allopen'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion globalConfiguration["androidCompileSdkVersion"]
+    buildToolsVersion globalConfiguration["androidBuildToolsVersion"]
     defaultConfig {
-        applicationId "net.radityalabs.alquran"
-        minSdkVersion 16
-        targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        minSdkVersion globalConfiguration["androidMinSdkVersion"]
+        targetSdkVersion globalConfiguration["androidTargetSdkVersion"]
+
+        applicationId globalConfiguration["androidApplicationId"]
+        versionCode globalConfiguration["androidVersionCode"]
+        versionName globalConfiguration["androidVersionName"]
+        testInstrumentationRunner globalConfiguration["testInstrumentationRunner"]
+        testApplicationId globalConfiguration["testApplicationId"]
+
         vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
@@ -22,16 +30,35 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    compile 'com.android.support:appcompat-v7:26.+'
-    compile 'com.android.support:design:26.+'
-    compile 'com.android.support:support-vector-drawable:26.+'
-    testCompile 'junit:junit:4.12'
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    def presentationDependencies = rootProject.ext.presentationDependencies
+
+    compile project(':domain')
+    compile project(':data')
+
+    compile     presentationDependencies.androidConstraint
+    compile     presentationDependencies.androidAppcompat
+    compile     presentationDependencies.androidDesign
+    compile     presentationDependencies.androidRecyclerview
+    compile     presentationDependencies.androidVectorDrawable
+    compile     presentationDependencies.androidCustomTabs
+    compile     presentationDependencies.androidCardView
+
+    compile     presentationDependencies.rxlifecycle
+    compile     presentationDependencies.rxlifecycleAndroid
+    compile     presentationDependencies.rxlifecycleComponent
+
+    compile     presentationDependencies.dagger
+
+    compile     presentationDependencies.rxJava
+    compile     presentationDependencies.rxAndroid
+
+    kapt        presentationDependencies.daggerCompiler
+    provided    presentationDependencies.javaAnnotation
+
+    compile     "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    compile     fileTree(dir: 'libs', include: ['*.jar'])
 }
+
 repositories {
     mavenCentral()
 }

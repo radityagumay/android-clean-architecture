@@ -1,0 +1,40 @@
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+ext {
+    androidBuildToolsVersion    = "26.0.1"
+    androidMinSdkVersion        = 16
+    androidTargetSdkVersion     = 26
+    androidCompileSdkVersion    = 26
+
+    daggerVersion           = "2.8"
+    rxJavaVersion           = "2.0.1"
+
+    rxLifeCycleVersion = "2.0.1"
+
+    androidDesignVersion    = "26.0.1"
+
+    presentationDependencies = [
+            daggerCompiler      : "com.google.dagger:dagger-compiler:${daggerVersion}",
+            dagger              : "com.google.dagger:dagger:${daggerVersion}",
+            javaAnnotation      : 'org.glassfish:javax.annotation:10.0-b28',
+
+            rxJava              : "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
+            rxAndroid           : "io.reactivex.rxjava2:rxandroid:${rxJavaVersion}",
+
+            rxlifecycle         : "com.trello.rxlifecycle2:rxlifecycle:${rxLifeCycleVersion}",
+            rxlifecycleAndroid  : "com.trello.rxlifecycle2:rxlifecycle-android:${rxLifeCycleVersion}",
+            rxlifecycleComponent: "com.trello.rxlifecycle2:rxlifecycle-components:${rxLifeCycleVersion}",
+
+            androidConstraint       : 'com.android.support.constraint:constraint-layout:1.0.2',
+            androidAppcompat        : "com.android.support:appcompat-v7:${androidDesignVersion}",
+            androidDesign           : "com.android.support:design:${androidDesignVersion}",
+            androidRecyclerview     : "com.android.support:recyclerview-v7:${androidDesignVersion}",
+            androidVectorDrawable   : "com.android.support:animated-vector-drawable:${androidDesignVersion}",
+            androidCustomTabs       : "com.android.support:customtabs:${androidDesignVersion}",
+            androidCardView         : "com.android.support:cardview-v7:${androidDesignVersion}"
+    ]
+}
