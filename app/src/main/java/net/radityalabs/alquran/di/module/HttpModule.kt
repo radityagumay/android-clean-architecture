@@ -4,11 +4,13 @@ import android.content.Context
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import dagger.Module
 import dagger.Provides
+import net.radityalabs.alquran.BuildConfig
 import net.radityalabs.alquran.data.di.scope.DefaultUrl
 import net.radityalabs.alquran.data.network.ApiConstant
 import net.radityalabs.alquran.data.network.RestService
 import net.radityalabs.alquran.data.network.interceptor.CacheInterceptor
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
@@ -42,11 +44,11 @@ class HttpModule {
     @Singleton
     @Provides
     fun provideClient(builder: OkHttpClient.Builder, cacheInterceptor: CacheInterceptor): OkHttpClient {
-        /*if (BuildConfig.DEBUG) {
+        if (BuildConfig.DEBUG) {
             val loggingInterceptor = HttpLoggingInterceptor()
             loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
             builder.addInterceptor(loggingInterceptor)
-        }*/
+        }
         builder.addNetworkInterceptor(cacheInterceptor)
         builder.connectTimeout(20, TimeUnit.SECONDS)
         builder.readTimeout(20, TimeUnit.SECONDS)
