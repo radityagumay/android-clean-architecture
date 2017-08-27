@@ -1,6 +1,7 @@
 package net.radityalabs.alquran
 
 import android.app.Application
+import net.radityalabs.alquran.di.module.HttpModule
 import net.radityalabs.alquran.di.component.AppComponent
 import net.radityalabs.alquran.di.component.DaggerAppComponent
 import net.radityalabs.alquran.di.module.AppModule
@@ -16,6 +17,7 @@ class App : Application() {
             if (sAppComponent == null) {
                 sAppComponent = DaggerAppComponent.builder()
                         .appModule(AppModule(instance))
+                        .httpModule(HttpModule())
                         .build()
             }
             return sAppComponent

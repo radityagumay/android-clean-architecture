@@ -1,4 +1,4 @@
-package net.radityalabs.alquran.data.di.module
+package net.radityalabs.alquran.di.module
 
 import android.content.Context
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -16,7 +16,6 @@ import javax.inject.Singleton
 
 @Module
 class HttpModule {
-
     @Singleton
     @Provides
     fun provideRetrofitBuilder(): Retrofit.Builder = Retrofit.Builder()
