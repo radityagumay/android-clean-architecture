@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 26
@@ -18,6 +19,26 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
+    def dataDependencies         = rootProject.ext.dataDependencies
+
+    compile         project(':domain')
+
+    compile         dataDependencies.gson
+    compile         dataDependencies.okio
+
+    compile         dataDependencies.retrofit
+    compile         dataDependencies.retrofit2Adapter
+
+    compile         dataDependencies.gsonConverter
+    compile         dataDependencies.loggingInterceptor
+    compile         dataDependencies.okhttp
+    compile         dataDependencies.okhttpUrlConnection
+
+
+    compile         fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile     'junit:junit:4.12'
+    compile         "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }

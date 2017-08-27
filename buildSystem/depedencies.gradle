@@ -17,12 +17,32 @@ ext {
 
     androidDesignVersion    = "26.0.1"
 
-    presentationDependencies = [
+    gsonVersion             = "2.8.1"
+    okioVersion             = "1.11.0"
+    retrofitVersion         = "2.1.0"
+    okhttpVersion           = "3.4.1"
+    rxjavaAdapterVersion    = "1.0.0"
+
+    generalDependencies         = [
             daggerCompiler      : "com.google.dagger:dagger-compiler:${daggerVersion}",
             dagger              : "com.google.dagger:dagger:${daggerVersion}",
             javaAnnotation      : 'org.glassfish:javax.annotation:10.0-b28',
 
-            rxJava              : "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
+            rxJava              : "io.reactivex.rxjava2:rxjava:${rxJavaVersion}"
+    ]
+
+    dataDependencies            = [
+            gson                : "com.google.code.gson:gson:${gsonVersion}",
+            okio                : "com.squareup.okio:okio:${okioVersion}",
+            retrofit            : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+            retrofit2Adapter    : "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:${rxjavaAdapterVersion}",
+            gsonConverter       : "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
+            loggingInterceptor  : "com.squareup.okhttp3:logging-interceptor:${okhttpVersion}",
+            okhttp              : "com.squareup.okhttp3:okhttp:${okhttpVersion}",
+            okhttpUrlConnection : "com.squareup.okhttp3:okhttp-urlconnection:${okhttpVersion}"
+    ]
+
+    presentationDependencies    = [
             rxAndroid           : "io.reactivex.rxjava2:rxandroid:${rxJavaVersion}",
 
             rxlifecycle         : "com.trello.rxlifecycle2:rxlifecycle:${rxLifeCycleVersion}",

@@ -1,12 +1,16 @@
 package net.radityalabs.alquran.di.component
 
+import android.content.Context
 import dagger.Component
 import net.radityalabs.alquran.App
+import net.radityalabs.alquran.data.di.module.HttpModule
 import net.radityalabs.alquran.di.module.AppModule
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = arrayOf(AppModule::class))
+@Component(modules = arrayOf(AppModule::class, HttpModule::class))
 interface AppComponent {
-    fun context(): App?
+    fun app(): App?
+
+    fun context(): Context
 }

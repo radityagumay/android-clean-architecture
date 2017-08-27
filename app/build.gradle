@@ -30,10 +30,11 @@ android {
 }
 
 dependencies {
-    def presentationDependencies = rootProject.ext.presentationDependencies
+    def presentationDependencies    = rootProject.ext.presentationDependencies
+    def generalDependencies         = rootProject.ext.generalDependencies
 
-    compile project(':domain')
-    compile project(':data')
+    compile     project(':domain')
+    compile     project(':data')
 
     compile     presentationDependencies.androidConstraint
     compile     presentationDependencies.androidAppcompat
@@ -47,13 +48,13 @@ dependencies {
     compile     presentationDependencies.rxlifecycleAndroid
     compile     presentationDependencies.rxlifecycleComponent
 
-    compile     presentationDependencies.dagger
+    compile     generalDependencies.dagger
 
-    compile     presentationDependencies.rxJava
+    compile     generalDependencies.rxJava
     compile     presentationDependencies.rxAndroid
 
-    kapt        presentationDependencies.daggerCompiler
-    provided    presentationDependencies.javaAnnotation
+    kapt        generalDependencies.daggerCompiler
+    provided    generalDependencies.javaAnnotation
 
     compile     "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     compile     fileTree(dir: 'libs', include: ['*.jar'])
