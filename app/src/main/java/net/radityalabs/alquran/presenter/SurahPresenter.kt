@@ -7,7 +7,6 @@ import net.radityalabs.alquran.ui.presenter.BasePresenter
 import net.radityalabs.alquran.ui.view.BaseView
 import javax.inject.Inject
 
-@PerActivity
 class SurahPresenter @Inject constructor(private val interactor: SurahInteractor) :
         BasePresenter<SurahPresenter.View>() {
 

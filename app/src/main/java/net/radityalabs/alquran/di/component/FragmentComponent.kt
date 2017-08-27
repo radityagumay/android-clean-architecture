@@ -12,7 +12,7 @@ import net.radityalabs.alquran.di.scope.FragmentScope
 interface FragmentComponent {
     fun activity(): Activity
 
-    fun context(): Context
+    fun context(): Context?
 
     fun plus(module: SurahModule): SurahComponent
 }

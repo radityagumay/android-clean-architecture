@@ -4,6 +4,8 @@ import android.content.Context
 import dagger.Component
 import net.radityalabs.alquran.App
 import net.radityalabs.alquran.data.di.module.HttpModule
+import net.radityalabs.alquran.data.network.RestService
+import net.radityalabs.alquran.data.network.RetrofitHelper
 import net.radityalabs.alquran.di.module.AppModule
 import net.radityalabs.alquran.domain.repository.SurahRepository
 import javax.inject.Singleton
@@ -13,5 +15,9 @@ import javax.inject.Singleton
 interface AppComponent {
     fun app(): App?
 
-    fun context(): Context
+    fun context(): Context?
+
+    fun retrofitHelper(): RetrofitHelper
+
+    fun restService(): RestService
 }
