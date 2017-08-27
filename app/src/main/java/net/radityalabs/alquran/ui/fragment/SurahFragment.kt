@@ -13,6 +13,7 @@ class SurahFragment : BaseFragment<SurahPresenter.View, SurahPresenter>(), Surah
     companion object {
         val TAG = SurahFragment::class.java.simpleName
 
+        @JvmStatic
         fun newInstance() = SurahFragment()
     }
 

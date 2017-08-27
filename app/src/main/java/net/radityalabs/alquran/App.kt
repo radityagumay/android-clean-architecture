@@ -8,24 +8,26 @@ import net.radityalabs.alquran.di.module.AppModule
 
 class App : Application() {
     companion object {
-        lateinit var instance: App
-
+        var sInstance: App? = null
+            private set
         var sAppComponent: AppComponent? = null
             private set
-
-        fun getAppComponent(): AppComponent? {
-            if (sAppComponent == null) {
-                sAppComponent = DaggerAppComponent.builder()
-                        .appModule(AppModule(instance))
-                        .httpModule(HttpModule())
-                        .build()
-            }
-            return sAppComponent
-        }
     }
 
     override fun onCreate() {
         super.onCreate()
-        instance = this
+
+        sInstance = this
+        getAppComponent()
+    }
+
+    private fun getAppComponent(): AppComponent? {
+        if (sAppComponent == null) {
+            sAppComponent = DaggerAppComponent.builder()
+                    .appModule(AppModule(sInstance))
+                    .httpModule(HttpModule())
+                    .build()
+        }
+        return sAppComponent
     }
 }
