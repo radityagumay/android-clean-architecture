@@ -16,7 +16,6 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
-
         sInstance = this
         getAppComponent()
     }
