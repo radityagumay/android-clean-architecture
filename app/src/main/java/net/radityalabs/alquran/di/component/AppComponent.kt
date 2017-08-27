@@ -5,6 +5,7 @@ import dagger.Component
 import net.radityalabs.alquran.App
 import net.radityalabs.alquran.data.di.module.HttpModule
 import net.radityalabs.alquran.di.module.AppModule
+import net.radityalabs.alquran.domain.repository.SurahRepository
 import javax.inject.Singleton
 
 @Singleton

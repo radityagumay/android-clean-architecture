@@ -8,13 +8,13 @@ import net.radityalabs.alquran.ui.view.BaseView
 import javax.inject.Inject
 
 @PerActivity
-class SurahPresenter @Inject constructor(val interactor: SurahInteractor) :
+class SurahPresenter @Inject constructor(private val interactor: SurahInteractor) :
         BasePresenter<SurahPresenter.View>() {
 
     fun getAllSurah() {
         interactor.getAllSurah().subscribe({
             success ->
-            view.showListSurah(success)
+            //view.showListSurah(success)
         }, {
             error ->
             view.showError(if (error.message.isNullOrEmpty()) "Something Error" else error.message!!)

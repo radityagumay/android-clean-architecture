@@ -19,9 +19,12 @@ android {
 }
 
 dependencies {
-    def dataDependencies         = rootProject.ext.dataDependencies
+    def dataDependencies            = rootProject.ext.dataDependencies
+    def generalDependencies         = rootProject.ext.generalDependencies
 
     compile         project(':domain')
+
+    compile         generalDependencies.rxAndroid
 
     compile         dataDependencies.gson
     compile         dataDependencies.okio

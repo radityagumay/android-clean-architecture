@@ -28,7 +28,8 @@ ext {
             dagger              : "com.google.dagger:dagger:${daggerVersion}",
             javaAnnotation      : 'org.glassfish:javax.annotation:10.0-b28',
 
-            rxJava              : "io.reactivex.rxjava2:rxjava:${rxJavaVersion}"
+            rxJava              : "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
+            rxAndroid           : "io.reactivex.rxjava2:rxandroid:${rxJavaVersion}"
     ]
 
     dataDependencies            = [
@@ -43,8 +44,6 @@ ext {
     ]
 
     presentationDependencies    = [
-            rxAndroid           : "io.reactivex.rxjava2:rxandroid:${rxJavaVersion}",
-
             rxlifecycle         : "com.trello.rxlifecycle2:rxlifecycle:${rxLifeCycleVersion}",
             rxlifecycleAndroid  : "com.trello.rxlifecycle2:rxlifecycle-android:${rxLifeCycleVersion}",
             rxlifecycleComponent: "com.trello.rxlifecycle2:rxlifecycle-components:${rxLifeCycleVersion}",

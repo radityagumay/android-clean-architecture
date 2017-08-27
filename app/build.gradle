@@ -51,7 +51,7 @@ dependencies {
     compile     generalDependencies.dagger
 
     compile     generalDependencies.rxJava
-    compile     presentationDependencies.rxAndroid
+    compile     generalDependencies.rxAndroid
 
     kapt        generalDependencies.daggerCompiler
     provided    generalDependencies.javaAnnotation

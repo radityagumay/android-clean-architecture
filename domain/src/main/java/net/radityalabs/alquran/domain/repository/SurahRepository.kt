@@ -4,5 +4,5 @@ import io.reactivex.Single
 import net.radityalabs.alquran.domain.model.Surah
 
 interface SurahRepository {
-    fun getAllSurah(): Single<List<Surah>>
+    fun allSurah(): Single<List<Surah>>
 }
