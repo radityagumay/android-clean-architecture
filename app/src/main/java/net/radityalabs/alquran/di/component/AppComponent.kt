@@ -15,7 +15,7 @@ import javax.inject.Singleton
 interface AppComponent {
     fun app(): App?
 
-    fun context(): Context?
+    fun context(): Context
 
     fun retrofitHelper(): RetrofitHelper
 

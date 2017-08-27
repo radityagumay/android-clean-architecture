@@ -12,11 +12,11 @@ import javax.inject.Singleton
 class AppModule(val app: App? = null) {
     @Singleton
     @Provides
-    fun provideApp() = app
+    fun provideApp(): App? = app
 
     @Singleton
     @Provides
-    fun provideContext() : Context = app?.applicationContext!!
+    fun provideContext(): Context = app?.applicationContext!!
 
     @Singleton
     @Provides
