@@ -10,7 +10,7 @@ ext {
     androidTargetSdkVersion     = 26
     androidCompileSdkVersion    = 26
 
-    daggerVersion           = "2.8"
+    daggerVersion           = "2.5"
     rxJavaVersion           = "2.0.1"
 
     rxLifeCycleVersion = "2.0.1"

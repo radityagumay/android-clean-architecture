@@ -20,7 +20,7 @@ abstract class BaseFragment<V : BaseView, P : BasePresenter<V>> : RxFragment(), 
 
     protected val fragmentComponent: FragmentComponent
         get() = DaggerFragmentComponent.builder()
-                .appComponent(App.sAppComponent)
+                .genericComponent(App.sGenericComponent)
                 .fragmentModule(FragmentModule(this))
                 .build()
 

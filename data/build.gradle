@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 26
@@ -15,6 +16,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    kapt {
+        generateStubs = true
     }
 }
 
@@ -37,6 +41,10 @@ dependencies {
     compile         dataDependencies.okhttp
     compile         dataDependencies.okhttpUrlConnection
 
+    compile         generalDependencies.dagger
+
+    kapt            generalDependencies.daggerCompiler
+    provided        generalDependencies.javaAnnotation
 
     compile         fileTree(dir: 'libs', include: ['*.jar'])
     testCompile     'junit:junit:4.12'
