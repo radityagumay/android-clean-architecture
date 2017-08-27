@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.trello.rxlifecycle2.android.RxLifecycleAndroid
 import net.radityalabs.alquran.App
-import net.radityalabs.alquran.di.component.DaggerFragmentComponent
-import net.radityalabs.alquran.di.component.FragmentComponent
+import net.radityalabs.alquran.di.component.base.DaggerFragmentComponent
+import net.radityalabs.alquran.di.component.base.FragmentComponent
 import net.radityalabs.alquran.di.module.FragmentModule
 import net.radityalabs.alquran.ui.presenter.BasePresenter
 import net.radityalabs.alquran.ui.view.BaseView

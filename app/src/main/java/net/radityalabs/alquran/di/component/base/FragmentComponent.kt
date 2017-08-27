@@ -1,8 +1,9 @@
-package net.radityalabs.alquran.di.component
+package net.radityalabs.alquran.di.component.base
 
 import dagger.Component
 import android.app.Activity
 import android.content.Context
+import net.radityalabs.alquran.di.component.GenericComponent
 import net.radityalabs.alquran.di.module.FragmentModule
 import net.radityalabs.alquran.di.module.SurahModule
 import net.radityalabs.alquran.di.scope.FragmentScope
