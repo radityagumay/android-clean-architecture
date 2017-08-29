@@ -2,8 +2,8 @@ package net.radityalabs.alquran
 
 import android.app.Application
 import net.radityalabs.alquran.data.di.module.HttpModule
-import net.radityalabs.alquran.di.component.DaggerGenericComponent
-import net.radityalabs.alquran.di.component.GenericComponent
+import net.radityalabs.alquran.di.component.base.BaseComponent
+import net.radityalabs.alquran.di.component.base.DaggerBaseComponent
 import net.radityalabs.alquran.di.module.AppModule
 
 class App : Application() {
@@ -11,7 +11,7 @@ class App : Application() {
         var sInstance: App? = null
             private set
 
-        var sGenericComponent: GenericComponent? = null
+        var sBaseComponent: BaseComponent? = null
             private set
     }
 
@@ -23,8 +23,8 @@ class App : Application() {
     }
 
     private fun setupGenericComponent() {
-        if (sGenericComponent == null) {
-            sGenericComponent = DaggerGenericComponent.builder()
+        if (sBaseComponent == null) {
+            sBaseComponent = DaggerBaseComponent.builder()
                     .httpModule(HttpModule())
                     .appModule(AppModule(sInstance))
                     .build()

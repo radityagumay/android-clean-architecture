@@ -1,4 +1,4 @@
-package net.radityalabs.alquran.di.component.base
+package net.radityalabs.alquran.di.component
 
 import dagger.Subcomponent
 import net.radityalabs.alquran.di.module.SurahModule

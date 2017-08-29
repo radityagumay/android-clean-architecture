@@ -1,4 +1,4 @@
-package net.radityalabs.alquran.di.component
+package net.radityalabs.alquran.di.component.base
 
 import dagger.Component
 import net.radityalabs.alquran.data.di.component.HttpComponent
@@ -9,4 +9,4 @@ import javax.inject.Singleton
 
 @Singleton
 @Component(modules = arrayOf(AppModule::class, HttpModule::class))
-interface GenericComponent : AppComponent, HttpComponent
+interface BaseComponent : AppComponent, HttpComponent

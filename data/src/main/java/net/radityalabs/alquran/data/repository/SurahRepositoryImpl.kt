@@ -8,7 +8,6 @@ import net.radityalabs.alquran.domain.model.Surah
 import net.radityalabs.alquran.domain.repository.SurahRepository
 import javax.inject.Singleton
 
-@Singleton
 class SurahRepositoryImpl(private val restService: RestService) : SurahRepository {
     override fun allSurah(): Single<List<Surah>> {
         return restService.loadSurah()

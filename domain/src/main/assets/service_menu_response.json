@@ -1,0 +1,19 @@
+{
+  "data": [
+    {
+      "title": "Jake Wharton",
+      "price": "Rp. 15.000",
+      "imageUrl": "https://avatars0.githubusercontent.com/u/66577?v=4&s=400"
+    },
+    {
+      "title": "Jake Wharton 2",
+      "price": "Rp. 16.000",
+      "imageUrl": "https://avatars0.githubusercontent.com/u/66577?v=4&s=400"
+    },
+    {
+      "title": "Jake Wharton 3",
+      "price": "Rp. 17.000",
+      "imageUrl": "https://avatars0.githubusercontent.com/u/66577?v=4&s=400"
+    }
+  ]
+}
